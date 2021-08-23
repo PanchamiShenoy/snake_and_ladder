@@ -14,6 +14,8 @@ public class SnakeAndLadder {
 		System.out.println("Single player is at postion "+position);
 		
 		Random random = new Random();
+		
+		while(position != 100) {
 		int dieNumber = random.nextInt(7-1)+1;
 		System.out.println("the number on die is"+dieNumber);
 		
@@ -27,6 +29,11 @@ public class SnakeAndLadder {
 		}else if(choice == SNAKE) {
 			System.out.println("Player declined by "+dieNumber);
 			position-=dieNumber;
+		}
+		
+		if(position<0)
+			position = 0;
+	
 		}
 	}
 
