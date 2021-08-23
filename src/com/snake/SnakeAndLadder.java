@@ -11,6 +11,7 @@ public class SnakeAndLadder {
 		System.out.println("Welcome to Snake and Ladder Program");
 		
 		int position=0;
+		int count=0;
 		System.out.println("Single player is at postion "+position);
 		
 		Random random = new Random();
@@ -36,8 +37,13 @@ public class SnakeAndLadder {
 		
 		if(position>100)
 			position-= dieNumber;
+		
+		count++;
+		System.out.println("Player position after every die roll: "+position);
 	
 		}
+		System.out.println("final position of the player is  : "+position);
+		System.out.println("player rolled the dice "+count+"times");
 	}
 
 }
