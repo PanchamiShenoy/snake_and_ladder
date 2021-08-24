@@ -6,17 +6,12 @@ public class SnakeAndLadder {
 	public static final int NO_PLAY = 1;
 	public static final int LADDER = 2;
 	public static final int SNAKE =3;
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("Welcome to Snake and Ladder Program");
+	public static int count=0; 
+	public static Random random = new Random();
+	public static int dieNumber=0;
+	
+	public static int play(int position) {
 		
-		int position=0;
-		int count=0;
-		System.out.println("Single player is at postion "+position);
-		
-		Random random = new Random();
-		
-		while(position != 100) {
 		int dieNumber = random.nextInt(7-1)+1;
 		System.out.println("the number on die is"+dieNumber);
 		
@@ -39,11 +34,35 @@ public class SnakeAndLadder {
 			position-= dieNumber;
 		
 		count++;
-		System.out.println("Player position after every die roll: "+position);
+		
+		return position;
+		
+	}
 	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Welcome to Snake and Ladder Program");
+		
+		int playerOnePosition=0;
+		int playerTwoPosition=0;
+		
+		
+		while(playerOnePosition!= 100 && playerTwoPosition!=100) {
+		
+			System.out.println("Playe 1 is rolling");
+			playerOnePosition=play(playerOnePosition);
+			System.out.println("Player position after rolling"+playerOnePosition);
+			System.out.println("Player 2 is rolling");
+			playerTwoPosition=play(playerTwoPosition);
+			System.out.println("Player position after rolling"+playerTwoPosition);
 		}
-		System.out.println("final position of the player is  : "+position);
-		System.out.println("player rolled the dice "+count+"times");
+		
+		if(playerOnePosition == 100)
+			System.out.println("Player 1 has Won.");
+		else
+			System.out.println("Player 2 has Won.");
+		
+		System.out.println("total number of times the die rolled is : "+count);
 	}
 
 }
